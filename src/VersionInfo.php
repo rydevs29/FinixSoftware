@@ -16,7 +16,6 @@
  * @author PocketMine Team
  * @link http://www.pocketmine.net/
  *
- *
  */
 
 declare(strict_types=1);
@@ -30,9 +29,10 @@ use function is_int;
 use function str_repeat;
 
 final class VersionInfo{
-	public const NAME = "PocketMine-MP";
+	public const NAME = "FinixEditionM2";
 	public const BASE_VERSION = "5.25.1";
-	public const IS_DEVELOPMENT_BUILD = true;
+	public const FORK_VERSION = "1.0.0";
+	public const IS_DEVELOPMENT_BUILD = false;
 	public const BUILD_CHANNEL = "stable";
 
 	/**
@@ -99,7 +99,7 @@ final class VersionInfo{
 
 	public static function VERSION() : VersionString{
 		if(self::$fullVersion === null){
-			self::$fullVersion = new VersionString(self::BASE_VERSION, self::IS_DEVELOPMENT_BUILD, self::BUILD_NUMBER());
+			self::$fullVersion = new VersionString(self::BASE_VERSION . " (Fork " . self::FORK_VERSION . ")", self::IS_DEVELOPMENT_BUILD, self::BUILD_NUMBER());
 		}
 		return self::$fullVersion;
 	}
